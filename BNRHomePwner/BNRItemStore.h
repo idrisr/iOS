@@ -10,4 +10,6 @@
 
 @interface BNRItemStore : NSObject
 
+// Notice this is a class method and prefixed with a + instead of -
++(instancetype) sharedStore;
 @end
