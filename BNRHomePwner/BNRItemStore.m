@@ -7,8 +7,35 @@
 //
 
 #import "BNRItemStore.h"
+#import "BNRItem.h"
+
+@interface BNRItemStore()
+//A class extension is a set of declarations that is private. Only the class or
+//instances of the class are able to use the properties, instance variables, or
+//methods declared in a class extension.
+@property (nonatomic) NSMutableArray *privateItems;
+@end
 
 @implementation BNRItemStore
+
+-(BNRItem *) createItem{
+    BNRItem *item = [BNRItem randomItem];
+    [self.privateItems addObject:item];
+    return item;
+}
+
+-(NSArray *) allItems{
+    return self.privateItems;
+}
+
+// here is the real (secret) initializer
+-(instancetype) initPrivate{
+    self = [super init];
+    if (self){
+        _privateItems = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
 
 +(instancetype) sharedStore{
     static BNRItemStore *sharedStore = nil;
@@ -26,12 +53,6 @@
                                    reason:@"Use +[BNRItemStore sharedStore]"
                                  userInfo:nil];
     return nil;
-}
-
-// here is the real (secret) initializer
--(instancetype) initPrivate{
-    self = [super init];
-    return self;
 }
 
 @end
