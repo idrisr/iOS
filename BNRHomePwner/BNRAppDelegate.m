@@ -7,6 +7,7 @@
 //
 
 #import "BNRAppDelegate.h"
+#import "BNRItemsViewController.h"
 
 @interface BNRAppDelegate ()
 
@@ -19,10 +20,17 @@
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Override point for customization after application launch.
+
+    // set the window size
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     // Create a view controller
+    BNRItemsViewController *ivc = [[BNRItemsViewController alloc] init];
 
+    self.window.rootViewController = ivc;
+
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
 
     return YES;
 }
