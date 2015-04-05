@@ -1,5 +1,5 @@
 //
-//  BNRItems.h
+//  BNRItemsViewController.h
 //  BNRHomePwner
 //
 //  Created by idris on 4/5/15.
@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface BNRItems : UITableViewController
+@interface BNRItemsViewController : UITableViewController
 @end
