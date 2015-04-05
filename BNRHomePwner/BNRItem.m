@@ -8,11 +8,6 @@
 
 @implementation BNRItem
 
--(void) setContained:(BNRItem *) containedItem{
-    _containedItem = containedItem;
-    containedItem.container = self;
-}
-
 +(instancetype) randomItem{
     // create list of adjectives
     NSArray *adjectives = @[@"Red", @"Big", @"Da Shiz"];
