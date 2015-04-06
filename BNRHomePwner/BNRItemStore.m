@@ -28,6 +28,18 @@
     return self.privateItems;
 }
 
+-(NSArray *) allItemsMoreThan50{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(valueInDollars >= 50)"];
+    NSArray *arrayFiltered = [self.privateItems filteredArrayUsingPredicate:predicate];
+    return arrayFiltered;
+}
+
+-(NSArray *) allItemsLessThan50{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(valueInDollars < 50)"];
+    NSArray *arrayFiltered = [self.privateItems filteredArrayUsingPredicate:predicate];
+    return arrayFiltered;
+}
+
 // here is the real (secret) initializer
 -(instancetype) initPrivate{
     self = [super init];
