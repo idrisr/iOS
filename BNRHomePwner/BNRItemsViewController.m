@@ -10,6 +10,10 @@
 #import "BNRItemStore.h"
 #import "BNRItem.h"
 
+@interface BNRItemsViewController()
+@property(nonatomic, retain) UIView *tableFooterView;
+@end
+
 @implementation BNRItemsViewController
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
@@ -79,12 +83,22 @@ titleForHeaderInSection:(NSInteger) section {
 -(instancetype) init{
     NSLog(@"In init in it");
     self = [super initWithStyle:UITableViewStyleGrouped];
+    [self.tableView addSubview:self.tableFooterView];
 
     if (self){
         for (int i = 0; i < 8; i++) {
             [[BNRItemStore sharedStore] createItem];
         }
     }
+
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    label.text = @"No More Items!";
+    // Colors and font
+    label.numberOfLines = 0;
+    // Autosize
+    [label sizeToFit];
+    // Add the UILabel to the tableview
+    self.tableView.tableFooterView = label;
     return self;
 }
 
