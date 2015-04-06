@@ -51,13 +51,14 @@
 -(NSInteger)tableView:(UITableView *)tableView
 numberOfRowsInSection:(NSInteger)section{
     switch ((int) section) {
-        case 0:
+        {case 0:
             return [[[BNRItemStore sharedStore] allItemsLessThan50] count];
             break;
-        case 1:
+        }
+        {case 1:
             return [[[BNRItemStore sharedStore] allItemsMoreThan50] count];
             break;
-
+        }
         default:
             return [[[BNRItemStore sharedStore] allItems] count];
             break;
@@ -80,8 +81,24 @@ titleForHeaderInSection:(NSInteger) section {
     }
 }
 
+
+-(NSString *)tableView:(UITableView *)tableView
+titleForFooterInSection:(NSInteger) section {
+    switch ((int) section) {
+        case 0:
+            return @"The End";
+            break;
+        case 1:
+            return @"My Friend";
+            break;
+
+        default:
+            return @"Fuck";
+            break;
+    }
+}
+
 -(instancetype) init{
-    NSLog(@"In init in it");
     self = [super initWithStyle:UITableViewStyleGrouped];
     [self.tableView addSubview:self.tableFooterView];
 
