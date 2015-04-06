@@ -34,7 +34,8 @@ numberOfRowsInSection:(NSInteger)section{
 }
 
 -(instancetype) init{
-    self = [super initWithStyle:UITableViewStylePlain];
+    self = [super initWithStyle:UITableViewStyleGrouped];
+
     if (self){
         for (int i = 0; i < 50; i++) {
             [[BNRItemStore sharedStore] createItem];
@@ -51,6 +52,10 @@ numberOfRowsInSection:(NSInteger)section{
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
+    // Number of sections is the number of regions
+    return 2;
 }
 
 @end
