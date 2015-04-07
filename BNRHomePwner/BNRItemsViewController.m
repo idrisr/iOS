@@ -16,6 +16,17 @@
 
 @implementation BNRItemsViewController
 
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == self.tableView.numberOfSections - 1 &&
+        indexPath.row == [[[BNRItemStore sharedStore] allItemsMoreThan50] count]){
+        return 44;
+    }
+    else{
+        return 60;
+    }
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     // Create an instance of UITableViewCell, with default appearance
