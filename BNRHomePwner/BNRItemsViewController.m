@@ -43,8 +43,14 @@
             items = [[BNRItemStore sharedStore] allItems];
             break;
     }
-    BNRItem *item = items[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@\t%i", item.name, item.valueInDollars];
+    // if last section, and last row
+    if (indexPath.section == self.tableView.numberOfSections - 1 &&
+        indexPath.row == [[[BNRItemStore sharedStore] allItemsMoreThan50] count]){
+        cell.textLabel.text = @"Last Row";
+    } else{
+        BNRItem *item = items[indexPath.row];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@\t%i", item.name, item.valueInDollars];
+    }
     return cell;
 }
 
@@ -56,7 +62,7 @@ numberOfRowsInSection:(NSInteger)section{
             break;
         }
         {case 1:
-            return [[[BNRItemStore sharedStore] allItemsMoreThan50] count];
+            return [[[BNRItemStore sharedStore] allItemsMoreThan50] count] + 1;
             break;
         }
         default:
