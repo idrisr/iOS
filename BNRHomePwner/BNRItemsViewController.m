@@ -26,9 +26,13 @@
 }
 
 -(IBAction)addNewItem:(id)sender{
-    // make a new index path for the 0th section, last row
 
-    NSInteger lastRow = [self.tableView numberOfRowsInSection:0];
+    // create a new BNRItem and add it to the store
+    BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
+
+    // Figure out where that item is in the array;
+    NSInteger lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
+
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:lastRow inSection:0];
 
     // insert this new row into the table
