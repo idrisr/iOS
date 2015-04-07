@@ -15,6 +15,7 @@
 		09B7FF801AD133FD00A6C853 /* BNRItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B7FF7F1AD133FD00A6C853 /* BNRItemsViewController.m */; };
 		09B7FF831AD1370500A6C853 /* BNRITem.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B7FF821AD1370500A6C853 /* BNRITem.m */; };
 		09B7FF861AD13AEA00A6C853 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B7FF851AD13AEA00A6C853 /* BNRItemStore.m */; };
+		09F7F7131AD3D75100A56FCC /* Mariah_Number_1's.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F7F7121AD3D75100A56FCC /* Mariah_Number_1's.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		09B7FF821AD1370500A6C853 /* BNRITem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRITem.m; sourceTree = "<group>"; };
 		09B7FF841AD13AEA00A6C853 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
 		09B7FF851AD13AEA00A6C853 /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
+		09F7F7121AD3D75100A56FCC /* Mariah_Number_1's.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mariah_Number_1's.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				09B7FF541AD12DFA00A6C853 /* BNRHomePwner */,
 				09B7FF6E1AD12DFA00A6C853 /* BNRHomePwnerTests */,
 				09B7FF531AD12DFA00A6C853 /* Products */,
+				09F7F7121AD3D75100A56FCC /* Mariah_Number_1's.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,6 +211,7 @@
 			files = (
 				09B7FF661AD12DFA00A6C853 /* LaunchScreen.xib in Resources */,
 				09B7FF631AD12DFA00A6C853 /* Images.xcassets in Resources */,
+				09F7F7131AD3D75100A56FCC /* Mariah_Number_1's.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +416,7 @@
 				09B7FF771AD12DFA00A6C853 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		09B7FF781AD12DFA00A6C853 /* Build configuration list for PBXNativeTarget "BNRHomePwnerTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +425,7 @@
 				09B7FF7A1AD12DFA00A6C853 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

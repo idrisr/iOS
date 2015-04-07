@@ -136,6 +136,9 @@ titleForFooterInSection:(NSInteger) section {
     // Autosize
     [label sizeToFit];
     // Add the UILabel to the tableview
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Mariah_Number_1's.png"]];
+    [tempImageView setFrame:self.tableView.frame];
+    self.tableView.backgroundView = tempImageView;
     self.tableView.tableFooterView = label;
     return self;
 }
