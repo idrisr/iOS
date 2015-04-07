@@ -44,12 +44,16 @@
             break;
     }
     // if last section, and last row
+    UIFont *smallFont = [UIFont systemFontOfSize:14];
+    UIFont *largeFont = [UIFont systemFontOfSize:20];
     if (indexPath.section == self.tableView.numberOfSections - 1 &&
         indexPath.row == [[[BNRItemStore sharedStore] allItemsMoreThan50] count]){
         cell.textLabel.text = @"Last Row";
+        cell.textLabel.font = smallFont;
     } else{
         BNRItem *item = items[indexPath.row];
         cell.textLabel.text = [NSString stringWithFormat:@"%@\t%i", item.name, item.valueInDollars];
+        cell.textLabel.font = largeFont;
     }
     return cell;
 }
