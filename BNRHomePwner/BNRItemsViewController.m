@@ -26,9 +26,31 @@
 }
 
 -(IBAction)addNewItem:(id)sender{
+    // make a new index path for the 0th section, last row
+
+    NSInteger lastRow = [self.tableView numberOfRowsInSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:lastRow inSection:0];
+
+    // insert this new row into the table
+    [self.tableView insertRowsAtIndexPaths:@[indexPath]
+                          withRowAnimation:UITableViewRowAnimationTop];
 }
 
 -(IBAction)toggleEditingMode:(id)sender{
+    // If you are currently in editing mode...
+    if (self.isEditing){
+        // Change text of button to inform user of state
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+
+        // turn off editing mode
+        [self setEditing:NO animated:YES];
+    } else {
+        // Change text of button to inform user of state
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+
+        // enter editing mode
+        [self setEditing:YES animated:YES];
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
