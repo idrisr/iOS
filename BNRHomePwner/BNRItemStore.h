@@ -11,10 +11,10 @@
 @class BNRItem;
 
 @interface BNRItemStore : NSObject
-
 @property (nonatomic, readonly) NSArray *allItems;
 
 // Notice this is a class method and prefixed with a + instead of -
 +(instancetype) sharedStore;
 - (BNRItem *) createItem;
+- (void)removeItem:(BNRItem *) item;
 @end
