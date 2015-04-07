@@ -10,7 +10,26 @@
 #import "BNRItemStore.h"
 #import "BNRItem.h"
 
+@interface BNRItemsViewController()
+@property (nonatomic, strong) IBOutlet UIView *headerView;
+@end
+
 @implementation BNRItemsViewController
+
+-(UIView *)headerView{
+    if (!_headerView){
+        [[NSBundle mainBundle] loadNibNamed:@"HeaderView"
+                                     owner:self
+                                    options:nil];
+    }
+    return _headerView;
+}
+
+-(IBAction)addNewItem:(id)sender{
+}
+
+-(IBAction)toggleEditingMode:(id)sender{
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -36,7 +55,7 @@ numberOfRowsInSection:(NSInteger)section{
 -(instancetype) init{
     self = [super initWithStyle:UITableViewStylePlain];
     if (self){
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 6; i++) {
             [[BNRItemStore sharedStore] createItem];
         }
     }
@@ -51,6 +70,7 @@ numberOfRowsInSection:(NSInteger)section{
     [super viewDidLoad];
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
+    [self.tableView setTableHeaderView:self.headerView];
 }
 
 @end
