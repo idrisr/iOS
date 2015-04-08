@@ -88,8 +88,6 @@ numberOfRowsInSection:(NSInteger)section{
 
 -(instancetype) init{
     self = [super initWithStyle:UITableViewStylePlain];
-    if (self){
-    }
     return self;
 }
 
