@@ -132,4 +132,9 @@ titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
     return @"Remove";
 }
 
+-(BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return !(indexPath.section == self.tableView.numberOfSections - 1 &&
+             indexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
+}
+
 @end
