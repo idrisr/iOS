@@ -68,14 +68,21 @@
     // will appear in on the tableview
 
     NSArray *items = [[BNRItemStore sharedStore] allItems];
-    BNRItem *item = items[indexPath.row];
-    cell.textLabel.text = [item description];
+    // if last section, and last row
+    if (indexPath.section == self.tableView.numberOfSections - 1 &&
+        indexPath.row == [[[BNRItemStore sharedStore] allItems] count]){
+        cell.textLabel.text = @"Last Row";
+    } else{
+        BNRItem *item = items[indexPath.row];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@\t%i", item.name, item.valueInDollars];
+    }
+
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView
 numberOfRowsInSection:(NSInteger)section{
-    return [[[BNRItemStore sharedStore] allItems] count];
+    return [[[BNRItemStore sharedStore] allItems] count] + 1;
 }
 
 -(instancetype) init{
