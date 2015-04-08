@@ -120,4 +120,9 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 }
 
+-(NSString *) tableView:(UITableView *)tableView
+titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"Remove";
+}
+
 @end
