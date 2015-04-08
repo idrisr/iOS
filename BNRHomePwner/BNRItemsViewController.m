@@ -133,8 +133,14 @@ titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
 }
 
 -(BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    return !(indexPath.section == self.tableView.numberOfSections - 1 &&
-             indexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
+    bool lastRow = !(indexPath.section == self.tableView.numberOfSections - 1 &&
+                     indexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
+    return lastRow;
 }
 
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+    bool lastRow = !(indexPath.section == self.tableView.numberOfSections - 1 &&
+                     indexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
+    return lastRow;
+}
 @end
