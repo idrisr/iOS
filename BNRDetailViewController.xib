@@ -54,7 +54,6 @@
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dHw-2d-v5z">
                     <rect key="frame" x="132" y="130" width="171" height="30"/>
                     <color key="backgroundColor" red="0.65095600330000003" green="0.78749486020000004" blue="0.84177117599999995" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="textColor" red="0.65095600330000003" green="0.78749486020000004" blue="0.84177117599999995" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -64,9 +63,8 @@
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="skd-4D-GBW" colorLabel="IBBuiltInLabel-Blue">
                     <rect key="frame" x="132" y="170" width="171" height="30"/>
                     <color key="backgroundColor" red="0.65095600330000003" green="0.78749486020000004" blue="0.84177117599999995" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="textColor" red="0.65095600328947367" green="0.78749486019736847" blue="0.84177117598684215" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="xAx-SV-dqN"/>
                     </connections>
