@@ -143,4 +143,24 @@ titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
                      indexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
     return lastRow;
 }
+
+
+- (NSIndexPath *)tableView:(UITableView *)tableView
+targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
+       toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath{
+    bool lastRow = !(sourceIndexPath.section == self.tableView.numberOfSections - 1 &&
+                     sourceIndexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
+    long destRow;
+    if (lastRow){
+        // the row before the last
+        destRow = [[[BNRItemStore sharedStore] allItems] count] - 1;
+    } else {
+        destRow = sourceIndexPath.row;
+    }
+
+    NSIndexPath *destinationPath = [NSIndexPath indexPathForRow:destRow inSection:sourceIndexPath.section];
+    return destinationPath;
+}
+
+
 @end
