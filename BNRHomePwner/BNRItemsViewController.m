@@ -86,13 +86,13 @@ numberOfRowsInSection:(NSInteger)section{
     return [[[BNRItemStore sharedStore] allItems] count] + 1;
 }
 
+-(instancetype)initWithStyle:(UITableViewStyle)style {
+    return [self init];
+}
+
 -(instancetype) init{
     self = [super initWithStyle:UITableViewStylePlain];
     return self;
-}
-
--(instancetype)initWithStyle:(UITableViewStyle)style{
-    return [self init];
 }
 
 -(void) viewDidLoad{
@@ -104,7 +104,7 @@ numberOfRowsInSection:(NSInteger)section{
 
 -(void) tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath{
+forRowAtIndexPath:(NSIndexPath *)indexPath {
     // if the table view is asking to commit a delete command...
     if (editingStyle == UITableViewCellEditingStyleDelete){
         NSArray *items = [[BNRItemStore sharedStore] allItems];
@@ -120,24 +120,24 @@ forRowAtIndexPath:(NSIndexPath *)indexPath{
 
 -(void)tableView:(UITableView *)tableView
 moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-     toIndexPath:(NSIndexPath *)destinationIndexPath{
+     toIndexPath:(NSIndexPath *)destinationIndexPath {
     [[BNRItemStore sharedStore] moveItemAtIndex:sourceIndexPath.row
                                         toIndex:destinationIndexPath.row];
 
 }
 
 -(NSString *) tableView:(UITableView *)tableView
-titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
     return @"Remove";
 }
 
--(BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+-(BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     bool lastRow = !(indexPath.section == self.tableView.numberOfSections - 1 &&
                      indexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
     return lastRow;
 }
 
--(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     bool lastRow = !(indexPath.section == self.tableView.numberOfSections - 1 &&
                      indexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
     return lastRow;
@@ -146,11 +146,11 @@ titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
 
 - (NSIndexPath *)tableView:(UITableView *)tableView
 targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
-       toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath{
+       toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
     bool lastRow = !(sourceIndexPath.section == self.tableView.numberOfSections - 1 &&
                      sourceIndexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
     long destRow;
-    if (lastRow){
+    if (lastRow) {
         // the row before the last
         destRow = [[[BNRItemStore sharedStore] allItems] count] - 1;
     } else {
@@ -168,8 +168,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     // Push it onto the top of the navigation controller's stack
     [self.navigationController pushViewController:detailViewController animated:YES];
 }
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
