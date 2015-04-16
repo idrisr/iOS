@@ -162,15 +162,15 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 -(void) tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] init];
-    detailViewController.item = [[BNRItemStore sharedStore] allItems][indexPath.row];
-
-    // Push it onto the top of the navigation controller's stack
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    if (! [self lastRow:indexPath]){
+        BNRDetailViewController *detailViewController = [[BNRDetailViewController alloc] init];
+        detailViewController.item = [[BNRItemStore sharedStore] allItems][indexPath.row];
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }
 }
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
 }
-
 @end
