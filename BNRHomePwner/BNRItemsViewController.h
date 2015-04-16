@@ -10,4 +10,5 @@
 #import <UIKit/UIKit.h>
 
 @interface BNRItemsViewController : UITableViewController
+-(BOOL) lastRow:(NSIndexPath *)indexPath;
 @end

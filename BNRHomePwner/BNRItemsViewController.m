@@ -17,6 +17,11 @@
 
 @implementation BNRItemsViewController
 
+-(BOOL) lastRow:(NSIndexPath *)indexPath{
+    return (indexPath.section == self.tableView.numberOfSections - 1 &&
+                indexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
+}
+
 -(UIView *)headerView{
     if (!_headerView){
         [[NSBundle mainBundle] loadNibNamed:@"HeaderView"
@@ -132,25 +137,19 @@ titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 -(BOOL) tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    bool lastRow = !(indexPath.section == self.tableView.numberOfSections - 1 &&
-                     indexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
-    return lastRow;
+    return ![self lastRow:indexPath];
 }
 
 -(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    bool lastRow = !(indexPath.section == self.tableView.numberOfSections - 1 &&
-                     indexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
-    return lastRow;
+    return ![self lastRow:indexPath];
 }
 
 
 - (NSIndexPath *)tableView:(UITableView *)tableView
 targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
        toProposedIndexPath:(NSIndexPath *)proposedDestinationIndexPath {
-    bool lastRow = !(sourceIndexPath.section == self.tableView.numberOfSections - 1 &&
-                     sourceIndexPath.row == [[[BNRItemStore sharedStore] allItems] count]);
     long destRow;
-    if (lastRow) {
+    if ([self lastRow:sourceIndexPath]){
         // the row before the last
         destRow = [[[BNRItemStore sharedStore] allItems] count] - 1;
     } else {
