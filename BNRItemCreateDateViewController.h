@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BNRItem.h"
 
 @interface BNRItemCreateDateViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic) BNRItem *item;
 @end

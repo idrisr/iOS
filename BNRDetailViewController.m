@@ -36,9 +36,18 @@
 
 - (IBAction)openDatePicker:(id)sender {
     BNRItemCreateDateViewController *dateViewController = [[BNRItemCreateDateViewController alloc] init];
+    dateViewController.item = self.item;
 
     // Push it onto the top of the navigation controller's stack
     [self.navigationController pushViewController:dateViewController animated:YES];
 }
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self viewDidLoad];
+}
+
+
 @end
+
 

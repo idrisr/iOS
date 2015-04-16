@@ -25,12 +25,16 @@
 }
 
 -(IBAction)setItemCreateDate:(id)sender{
-    NSDate *date = self.datePicker.date;
-    NSLog(@"Setting a reminder for %@", date);
-    // update model with new date
-    // pop this view controller off of the stack
+    NSDate *pickedDate = self.datePicker.date;
+    NSLog(@"Setting a reminder for %@", pickedDate);
 
+    // update model with new date
+    self.item.dateCreated = pickedDate;
+
+    // pop this view controller off of the stack
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
 /*
 #pragma mark - Navigation
 
