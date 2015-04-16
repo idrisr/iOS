@@ -7,14 +7,22 @@
 //
 
 #import "BNRDetailViewController.h"
+#import "BNRItemCreateDateViewController.h"
 
 @interface BNRDetailViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+- (IBAction)openDatePicker:(id)sender;
 
 @end
 
 @implementation BNRDetailViewController
+- (IBAction)openDatePicker:(id)sender {
+    BNRItemCreateDateViewController *dateViewController = [[BNRItemCreateDateViewController alloc] init];
+
+    // Push it onto the top of the navigation controller's stack
+    [self.navigationController pushViewController:dateViewController animated:YES];
+}
 @end
