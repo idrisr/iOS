@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
+@property (weak, nonatomic) IBOutlet UITextField *dateCreatedField;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 - (IBAction)openDatePicker:(id)sender;
 
@@ -25,6 +26,12 @@
     self.nameField.text = self.item.name;
     self.valueField.text = [NSString stringWithFormat:@"$%i", self.item.valueInDollars];
     self.serialNumberField.text = self.item.serialNumber;
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"MM/dd/YYYY";
+    NSString *dateString = [formatter stringFromDate:(self.item.dateCreated)];
+
+    self.dateCreatedField.text = dateString;
 }
 
 - (IBAction)openDatePicker:(id)sender {
